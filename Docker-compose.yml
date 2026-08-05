@@ -1,0 +1,46 @@
+services:
+  vote:
+    build: ./vote
+    ports:
+      - "8080:80"
+    depends_on:
+      - redis
+    networks:
+      - voting-net
+
+  result:
+    build: ./result
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+    networks:
+      - voting-net
+
+  worker:
+    build: ./worker
+    depends_on:
+      - redis
+      - db
+    networks:
+      - voting-net
+
+  redis:
+    image: redis:alpine
+    networks:
+      - voting-net
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - voting-net
+
+networks:
+  voting-net:
+
+volumes:
+  db-data:
