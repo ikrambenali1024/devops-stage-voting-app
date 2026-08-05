@@ -1,4 +1,4 @@
-FROM python:3.11.15-slim-trixie
+FROM python:3.11-slim-bookworm
 RUN apt-get update && \
     apt-get install -y --no-install-recommends curl && \
     rm -rf /var/lib/apt/lists/*
