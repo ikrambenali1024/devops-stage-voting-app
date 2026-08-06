@@ -1,0 +1,9 @@
+# CVE sans correctif disponible dans Debian 12 (bookworm) à ce jour
+# Paquets système non utilisés directement par l'application Flask
+
+CVE-2025-7458   # libsqlite3 - non utilisé par l'app (pas de SQLite dans le code)
+CVE-2026-13221  # perl-base - Perl non utilisé par l'app
+CVE-2026-42496  # perl-archive-tar - idem, fix_deferred par Debian
+CVE-2026-57433  # perl-base (Storable) - idem
+CVE-2026-8376   # perl-base - idem
+CVE-2023-45853  # zlib1g - will_not_fix officiel de Debian, nécessite ZIP64 non utilisé
