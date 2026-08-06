@@ -1,0 +1,7 @@
+# CVE sans correctif disponible dans Debian 11 (bullseye) à ce jour
+CVE-2019-8457   # libdb5.3 - will_not_fix, non utilisé directement par le worker
+CVE-2026-13221  # perl-base - Perl non utilisé par l'app .NET
+CVE-2026-42496  # perl-base (archive-tar) - fix_deferred
+CVE-2026-57433  # perl-base (Storable) - idem
+CVE-2026-8376   # perl-base - idem
+CVE-2023-45853  # zlib1g - will_not_fix officiel Debian
