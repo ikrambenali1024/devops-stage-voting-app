@@ -12,6 +12,11 @@ RUN dotnet publish -c Release -o /app
 FROM mcr.microsoft.com/dotnet/runtime:7.0-bookworm-slim
 WORKDIR /app
 
+# Force la mise à jour des paquets système pour les derniers correctifs de sécurité
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN useradd -m -u 1000 appuser
 
 COPY --from=build /app .
